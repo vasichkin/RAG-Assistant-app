@@ -1,0 +1,11 @@
+query,faiss_latency_ms,qdrant_latency_ms,faiss_chunks,qdrant_chunks,overlap_count
+What is the official title of the financial report for IFC's 2024 fiscal year?,350.81,646.85,5,5,1
+"What was IFC's Net Income for the fiscal year ending June 30, 2024?",283.19,651.0,5,5,2
+"What was the total value of IFC's assets as of June 30, 2023?",267.19,662.21,5,5,3
+What is the stated mission of the International Finance Corporation?,322.39,199.13,5,5,2
+What was the revised subscription deadline for the General Capital Increase (GCI) following the April 2024 extension?,195.24,305.39,5,5,2
+What was the Income Available for Designations for IFC in FY24?,190.1,251.19,5,5,4
+"What were IFC's total disbursements, excluding guarantees, in FY24?",348.72,632.36,5,5,5
+What was the approximate value of IFC's outstanding borrowings as of June 2022?,400.33,508.03,5,5,3
+With which accounting principles do IFC's consolidated financial statements conform?,187.13,346.05,5,5,0
+"What was the value attributed to ""PCRF Income"" in the reconciliation to Income Available for Designations for the year ended June 30, 2024?",200.88,201.18,5,5,3

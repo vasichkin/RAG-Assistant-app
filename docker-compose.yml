@@ -1,0 +1,17 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports: ["6333:6333"]
+    volumes: ["./data/qdrant_storage:/qdrant/storage"]
+  app:
+    build: .
+    ports: ["8501:8501"]
+    env_file: .env
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/root/.config/gcloud/application_default_credentials.json
+      - QDRANT_HOST=qdrant
+    depends_on: [qdrant]
+    volumes:
+      - ./data:/app/data
+      - ${HOME}/.config/gcloud:/root/.config/gcloud:ro
+    command: ["streamlit", "run", "app/main.py", "--server.port=8501", "--server.address=0.0.0.0", "--server.fileWatcherType=none"]

@@ -1,0 +1,38 @@
+# Core SDK + auth
+google-genai==1.75.0
+google-auth==2.55.0
+google-cloud-aiplatform>=1.60.0
+
+# RAG framework
+langchain>=0.3.0,<1.0.0
+langchain-core>=0.3.0,<1.0.0
+langchain-community>=0.3.0,<1.0.0
+langchain-qdrant>=0.1.0,<1.0.0
+langchain-text-splitters>=0.3.0,<1.0.0
+
+# Vector stores
+faiss-cpu>=1.8.0
+qdrant-client>=1.9.0
+
+# PDF parsing
+pymupdf>=1.24.0
+
+# Re-ranking + sparse retrieval
+sentence-transformers>=3.0.0
+rank-bm25>=0.2.2
+
+# Evaluation
+ragas>=0.2.0
+datasets>=2.0.0
+
+# UI
+streamlit==1.58.0
+
+# Observability
+langfuse==2.60.10
+
+# Utilities
+pandas==2.3.3
+numpy==2.5.0
+python-dotenv>=1.0.0
+pydantic>=2.0.0
