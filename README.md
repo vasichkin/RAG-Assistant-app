@@ -106,16 +106,45 @@ The host's `~/.config/gcloud` directory is mounted read-only into the container 
 
 ## Evaluation
 
-Run RAGAS evaluation against the bundled question/answer dataset:
+All evaluation scripts run from the project root. Results are saved to `evaluation/results/` as JSON.
+
+**Standard RAG pipeline (FAISS, default):**
 ```bash
 python -m scripts.run_evaluation
 ```
-Results are saved to `evaluation/results/` as JSON. Phase results (phase1–phase6) are already included.
 
-Run ColPali (Phase 6) evaluation separately:
+**With Qdrant vector store:**
+```bash
+python -m scripts.run_evaluation --store qdrant
+```
+
+**Custom dataset or output path:**
+```bash
+python -m scripts.run_evaluation \
+  --csv resources/datasets/rag_evaluation_dataset.csv \
+  --output evaluation/results/my_run.json \
+  --store faiss
+```
+
+**ColPali multimodal pipeline (Phase 6):**
 ```bash
 python -m scripts.run_phase6_eval
 ```
+Requires Qdrant running and the IFC financials PDF at `resources/documents/ifc-annual-report-2024-financials.pdf`. Builds or reuses a `colpali` collection in Qdrant (rebuilds automatically if the stored vectors have the wrong dimension).
+
+**On macOS you may need to suppress an OpenMP warning:**
+```bash
+KMP_DUPLICATE_LIB_OK=TRUE python -m scripts.run_evaluation
+```
+
+### RAGAS metrics
+
+| Metric | What it measures |
+|---|---|
+| `context_precision` | Fraction of retrieved chunks that are relevant |
+| `context_recall` | Fraction of required information covered by retrieved chunks |
+| `faithfulness` | Whether the answer is grounded in the retrieved context |
+| `answer_relevancy` | How directly the answer addresses the question |
 
 ## Configuration
 
